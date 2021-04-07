@@ -1,10 +1,8 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "components/Layout"
-import ProjectCard from "components/ProjectCard"
 import Button from "components/_ui/Button"
 import dimensions from "styles/dimensions"
 
