@@ -5,12 +5,25 @@ import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "components/Layout"
 import ProjectCard from "components/ProjectCard"
+import Button from "components/_ui/Button"
+import dimensions from "styles/dimensions"
 
-const WorkTitle = styled("h1")`
+const Title = styled("h1")`
   margin-bottom: 1em;
 `
 
-const Work = ({ projects, meta }) => (
+const AboutActions = styled("div")`
+  padding-top: 1em;
+  padding-bottom: 3em;
+
+  @media (max-width: ${dimensions.maxwidthMobile}px) {
+    padding: 0;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+`
+
+const Contact = ({ meta }) => (
   <>
     <Helmet
       title={`Work`}
@@ -51,53 +64,28 @@ const Work = ({ projects, meta }) => (
       ].concat(meta)}
     />
     <Layout>
-      <WorkTitle>Work</WorkTitle>
-      <>
-        {projects.map((project, i) => (
-          <ProjectCard
-            key={i}
-            category={project.node.project_category}
-            title={project.node.project_title}
-            description={project.node.project_preview_description}
-            thumbnail={project.node.project_preview_thumbnail}
-            uid={project.node._meta.uid}
-          />
-        ))}
-      </>
+      <Title>Contact</Title>
+      <AboutActions>
+        <a
+          href="mailto:ubaidsiddiquimail@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="Button--secondary">Email me</Button>
+        </a>
+      </AboutActions>
     </Layout>
   </>
 )
 
 export default ({ data }) => {
-  const projects = data.prismic.allProjects.edges
   const meta = data.site.siteMetadata
-  if (!projects) return null
 
-  return <Work projects={projects} meta={meta} />
-}
-
-Work.propTypes = {
-  projects: PropTypes.array.isRequired,
+  return <Contact meta={meta} />
 }
 
 export const query = graphql`
   {
-    prismic {
-      allProjects {
-        edges {
-          node {
-            project_title
-            project_preview_description
-            project_preview_thumbnail
-            project_category
-            project_post_date
-            _meta {
-              uid
-            }
-          }
-        }
-      }
-    }
     site {
       siteMetadata {
         title
