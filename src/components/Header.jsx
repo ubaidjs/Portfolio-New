@@ -71,11 +71,20 @@ const HeaderLinks = styled("div")`
   }
 `
 
+const Logo = styled("img")`
+  height: 40px;
+  margin-left: -10px;
+
+  @media (max-width: ${dimensions.maxwidthMobile}px) {
+    height: 30px;
+  }
+`
+
 const Header = () => (
   <HeaderContainer>
     <HeaderContent>
       <Link to="/">
-        <img alt="logo" src="https://i.ibb.co/bFC13fg/ubaid.png" />
+        <Logo alt="logo" src="https://i.ibb.co/ch4VLz4/logo.png" />
       </Link>
       <HeaderLinks>
         <Link activeClassName="Link--is-active" to="/work">

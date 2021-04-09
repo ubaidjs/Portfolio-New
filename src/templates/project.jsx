@@ -49,6 +49,10 @@ const WorkLink = styled(Link)`
   text-align: center;
 `
 
+const HeroImage = styled("img")`
+  width: 100%;
+`
+
 const Project = ({ project, meta }) => {
   return (
     <>
@@ -94,7 +98,7 @@ const Project = ({ project, meta }) => {
         <ProjectTitle>{RichText.render(project.project_title)}</ProjectTitle>
         {project.project_hero_image && (
           <ProjectHeroContainer>
-            <img src={project.project_hero_image.url} alt="bees" />
+            <HeroImage src={project.project_hero_image.url} alt="bees" />
           </ProjectHeroContainer>
         )}
         <ProjectBody>
