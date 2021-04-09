@@ -24,7 +24,7 @@ const AboutActions = styled("div")`
 const Contact = ({ meta }) => (
   <>
     <Helmet
-      title={`Work`}
+      title={`Contact`}
       titleTemplate={`%s`}
       meta={[
         {
@@ -33,7 +33,7 @@ const Contact = ({ meta }) => (
         },
         {
           property: `og:title`,
-          content: `Work`,
+          content: `Contact`,
         },
         {
           property: `og:description`,
